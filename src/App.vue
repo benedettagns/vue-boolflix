@@ -2,7 +2,7 @@
   <div>
     <header-container/>
     <search-box />
-    <main-container/>
+    <main-container />
   </div>
 </template>
 
@@ -24,6 +24,14 @@ export default {
         movies: [],
       }
     },
+
+    methods: {
+      watchMovie(titoloCercato) {
+        axios.get('https://api.themoviedb.org/3/search/movie?api_key=417f4df441eb2f30f54f1adfb64efccc&query=' + titoloCercato).then((response) =>{
+          this.movies = response.data.results;
+        })
+      }
+    }
   
 }
 </script>
