@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <movie-box/>
+    <div class="container">
+        <movie-box v-for="movie in movies" :key="movie.id" :movie="movie"/>
     </div>
 </template>
 
@@ -11,10 +11,15 @@ export default {
     components: { 
         MovieBox 
     },
-    
+    props: {
+        films: Array,
+    }
 }
 </script>
 
 <style lang="scss" scoped>
-
+.container{
+    height: 500px;
+    background-color: royalblue;
+}
 </style>

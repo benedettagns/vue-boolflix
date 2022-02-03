@@ -1,8 +1,8 @@
 <template>
   <div>
     <header-container/>
-    <search-box />
-    <main-container />
+    <search-box @cerca="watchMovie"/>
+    <main-container :movies="movies"/>
   </div>
 </template>
 
