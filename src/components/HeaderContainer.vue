@@ -1,18 +1,12 @@
 <template>
     <header>
         <h1>BOOLFLIX</h1>
-        <search-box/>
     </header>
 </template>
 
 <script>
-import SearchBox from './SearchBox.vue'
 
 export default {
-    components: { 
-        SearchBox 
-    },
-    
 }
 </script>
 
