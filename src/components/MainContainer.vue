@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <movie-box v-for="movie in movies" :key="movie.id" :movie="movie"/>
+        <movie-box v-for="movie in movies" :key="movie.id" :movies="movies"/>
     </div>
 </template>
 
