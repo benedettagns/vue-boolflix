@@ -6,6 +6,9 @@
       <div class="indietro">
         <p> Titolo:{{ movie.title }}</p>
         <p>Titolo originale:{{ movie.original_title }}</p>
+
+        <p> {{ movie.original_language }}</p>
+
         <p>Voto: <i class="fa-solid fa-star">{{ Math.round(movie.vote_average/2) }} </i></p>
         <p>Trama: {{ movie.overview }}</p>
       </div>
