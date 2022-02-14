@@ -1,25 +1,25 @@
 <template>
-    <div class="container">
-        <movie-box v-for="movie in movies" :key="movie.id" :movies="movies"/>
-    </div>
+  <div class="container">
+    <movie-box v-for="movie in movies" :key="movie.id" :movie="movie" />
+  </div>
 </template>
 
 <script>
-import MovieBox from './MovieBox.vue'
+import MovieBox from "./MovieBox.vue";
 
 export default {
-    components: { 
-        MovieBox 
-    },
-    props: {
-        films: Array,
-    }
-}
+  components: {
+    MovieBox,
+  },
+  props: {
+    movies: Array,
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-.container{
-    height: 500px;
-    background-color: whitesmoke;
+.container {
+  display: flex;
+  flex-wrap: wrap;
 }
 </style>

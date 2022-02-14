@@ -1,59 +1,68 @@
 <template>
   <div>
-    <header-container/>
-    <search-box @cerca="watchMovie" @search="watchSeries"/>
-    <main-container :movies="movies"/>
+    <header-container />
+    <search-box @cerca="watchMovie" @search="watchSeries" />
+    <main-container :movies="movies" />
   </div>
 </template>
 
 <script>
-import axios from 'axios'
-import HeaderContainer from './components/HeaderContainer.vue'
-import MainContainer from './components/MainContainer.vue'
-import SearchBox from './components/SearchBox.vue'
+import axios from "axios";
+import HeaderContainer from "./components/HeaderContainer.vue";
+import MainContainer from "./components/MainContainer.vue";
+import SearchBox from "./components/SearchBox.vue";
 
 export default {
-  components: { 
-    HeaderContainer, 
-    SearchBox, 
-    MainContainer 
-    },
+  components: {
+    HeaderContainer,
+    SearchBox,
+    MainContainer,
+  },
 
-    data() {
-      return {
-        movies: [],
-        series: [],
-      }
-    },
+  data() {
+    return {
+      movies: [],
+    };
+  },
+  mounted(){
+    this.watchMovie("titanic")
+  },
 
-    methods: {
-      watchMovie(titolo) {
+  methods: {
+    
+    watchMovie(titolo) {
+      if (titolo != "") {
+        const apiKey = "417f4df441eb2f30f54f1adfb64efccc";
+        let strApi =
+          "https://api.themoviedb.org/3/search/movie?api_key=" +
+          apiKey +
+          "&query=" +
+          titolo;
 
-        const details = {
-          query: titolo,
-          api_key: '417f4df441eb2f30f54f1adfb64efccc',
-        }
-
-        axios.get(`https://api.themoviedb.org/3/search/movie`, {details}).then((response) => {
+        axios.get(strApi).then((response) => {
           this.movies = response.data.results;
-        })
-      },
-
-      watchSeries(titolo) {
-        const details = {
-          query: titolo,
-          api_key: '417f4df441eb2f30f54f1adfb64efccc'
-        }
-
-        axios.get(`https://api.themoviedb.org/3/search/tv`, {details}).then((response) => {
-          this.series = response.data.results
-        })
+        });
       }
-    }
-  
-}
+    },
+
+    watchSeries(titolo) {
+      if (titolo != "") {
+        const apiKey = "417f4df441eb2f30f54f1adfb64efccc";
+        let strApi =
+          "https://api.themoviedb.org/3/search/tv?api_key=" +
+          apiKey +
+          "&query=" +
+          titolo;
+
+        axios.get(strApi).then((response) => {
+          this.movies = response.data.results;
+        });
+      }
+    },
+  },
+};
 </script>
 
-<style lang="scss" scoped>
-
+<style lang="scss" >
+@import 'style/main.scss'
 </style>
