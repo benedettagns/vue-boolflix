@@ -4,11 +4,10 @@
     <div class="card-film">
 
       <div class="indietro">
-        <p>{{ movie.title }}</p>
-        <p>{{ movie.original_title }}</p>
-        <p>{{ movie.vote_average }}</p>    
-        <!-- <p> adkssk podak poaskda {{ Math.round(movie.vote_average/2) }} ciao</p> -->
-        <p>{{ movie.overview }}</p>
+        <p> Titolo:{{ movie.title }}</p>
+        <p>Titolo originale:{{ movie.original_title }}</p>
+        <p>Voto: <i class="fa-solid fa-star">{{ Math.round(movie.vote_average/2) }} </i></p>
+        <p>Trama: {{ movie.overview }}</p>
       </div>
 
       <div class="davanti">
@@ -36,6 +35,10 @@ export default {
     color: white;
     padding: 10px;
     font-size: 12px;
+
+    i {
+      color: yellow;
+    }
   }
 
   .card-film {
